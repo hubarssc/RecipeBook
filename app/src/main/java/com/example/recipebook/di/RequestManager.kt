@@ -30,8 +30,8 @@ class RequestManager(private val context: Context) {
     private val apiService: CallRandomRecipes = retrofit.create(CallRandomRecipes::class.java)
 
     // Метод для получения случайных рецептов
-    fun getRandomRecipes(listener: RandomRecipeResponseListener) {
-        val call = apiService.callRandomRecipe(apiKey, "20")
+    fun getRandomRecipes(listener: RandomRecipeResponseListener, tags: MutableList<String> ) {
+        val call = apiService.callRandomRecipe(apiKey, "20", tags.joinToString(","))
 
         call.enqueue(object : Callback<RandomRecipeApiResponse> {
             override fun onResponse(call: Call<RandomRecipeApiResponse>, response: Response<RandomRecipeApiResponse>) {
@@ -60,7 +60,8 @@ class RequestManager(private val context: Context) {
         @GET("recipes/random")
         fun callRandomRecipe(
             @Query("apiKey") apiKey: String,
-            @Query("number") number: String
+            @Query("number") number: String,
+            @Query("tags") tags: String
         ): Call<RandomRecipeApiResponse>
     }
 }
