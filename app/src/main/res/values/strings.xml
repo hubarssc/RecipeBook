@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Recipe Book</string>
+    <string name="dish_name">Dish Name</string>
+    <string name="Two_persons">2 Persons</string>
+    <string name="like">like</string>
+    <string name="time">time</string>
+    <string name="likes_template">%d Likes</string>
+    <string name="servings_template">%d Servings</string>
+    <string name="minutes_template">%d Minutes</string>
+</resources>
